@@ -14,19 +14,7 @@ import { UserComponent } from './users/user/user.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
-const appRoutes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'users', component: UsersComponent, children:[
-    {path: ':id/:name', component: UserComponent}
-  ]} ,  
-  {path: 'servers', component: ServersComponent, children:[
-    {path: ':id', component: ServerComponent} ,
-    {path: ':id/edit', component: EditServerComponent}
-  ] } ,
-  {path: 'not-found', component: PageNotFoundComponent},
-  {path: '**', redirectTo: '/not-found'}
 
-];
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +31,8 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
